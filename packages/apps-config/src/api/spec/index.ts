@@ -31,7 +31,9 @@ import encointerNodeTeeproxy from './encointer-node-teeproxy';
 import encointerPara from './encointer-para';
 import equilibrium from './equilibrium';
 import galital from './galital';
+import galitalParachain from './galital-parachain';
 import galois from './galois';
+import gamepower from './gamepower';
 import hanonycash from './hanonycash';
 import hydrate from './hydrate';
 import idavoll from './idavoll';
@@ -42,6 +44,7 @@ import jupiterRococo from './jupiter-rococo';
 import kilt from './kilt';
 import konomi from './konomi';
 import kulupu from './kulupu';
+import kylin from './kylin';
 import laminar from './laminar';
 import litentry from './litentry';
 import manta from './manta';
@@ -50,6 +53,7 @@ import mybank from './mybank';
 import neatcoin from './neatcoin';
 import nftmart from './nftmart';
 import nodle from './nodle';
+import pangolin from './pangolin';
 import parami from './parami';
 import phala from './phala';
 import phalaParachain from './phala-parachain';
@@ -59,6 +63,7 @@ import plasmParachain from './plasm-parachain';
 import polkabtc from './polkabtc';
 import polkadex from './polkadex';
 import polkafoundry from './polkafoundry';
+import polymesh from './polymesh';
 import prism from './prism';
 import realis from './realis';
 import riochain from './riochain';
@@ -89,6 +94,7 @@ const spec: Record<string, OverrideBundleDefinition> = {
   'Darwinia Crab PC2': darwiniaParachain,
   'Darwinia PC2': darwiniaParachain,
   Equilibrium: equilibrium,
+  Pangolin: pangolin,
   VLN: vln,
   'VLN-PC': vlnrococo,
   acala,
@@ -120,8 +126,11 @@ const spec: Record<string, OverrideBundleDefinition> = {
   'encointer-node-notee': encointerNodeNotee,
   'encointer-node-teeproxy': encointerNodeTeeproxy,
   'encointer-parachain': encointerPara,
-  'galital-collator': galital,
+  galital: galital,
+  'galital-collator': galitalParachain,
+  gamepower,
   'hack-hydra-dx': hydrate,
+  halongbay: polkafoundry,
   hanonycash,
   'hydra-dx': hydrate,
   idavoll,
@@ -129,18 +138,21 @@ const spec: Record<string, OverrideBundleDefinition> = {
   'ipse-node': ipse,
   'jupiter-prep': jupiter,
   'jupiter-rococo': jupiterRococo,
+  khala: phalaParachain,
   'kilt-parachain': kilt,
   konomi,
   kulupu,
+  kylin,
   laminar,
   litentry,
   mandala: acala,
-  manta,
+  'manta-node': manta,
   'mashnet-node': kilt,
   'mathchain-galois': galois,
-  'moonbase-alphanet': moonbeam,
+  moonbase: moonbeam,
   moonbeam,
-  'moonbeam-standalone': moonbeam,
+  moonriver: moonbeam,
+  moonshadow: moonbeam,
   'mybank.network Testnet': mybank,
   neatcoin,
   nft: unique,
@@ -155,7 +167,7 @@ const spec: Record<string, OverrideBundleDefinition> = {
   'phoenix-parachain': phoenix,
   plasm,
   'plasm-parachain': plasmParachain,
-  polkafoundry,
+  polymesh,
   prism,
   realis,
   'riochain-runtime': riochain,
