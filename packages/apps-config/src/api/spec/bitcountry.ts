@@ -12,6 +12,7 @@ const definitions: OverrideBundleDefinition = {
       // on all versions
       minmax: [0, undefined],
       types: {
+        AccountInfo: 'AccountInfoWithProviders',
         Address: 'MultiAddress',
         LookupSource: 'MultiAddress',
         AssetInfo: {
