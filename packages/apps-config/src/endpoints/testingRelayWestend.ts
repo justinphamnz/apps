@@ -27,18 +27,23 @@ export function createWestend (t: TFunction): EndpointOption {
       'Patract Elara': 'wss://westend.elara.patract.io',
       OnFinality: 'wss://westend.api.onfinality.io/public-ws'
     },
+    teleport: [1000],
     linked: [
       // (1) system parachains (none available yet)
       // ...
       // (2) common good, leave as second group
       {
-        info: 'shell',
-        paraId: 1070,
-        text: t('rpc.westend.shell', 'Shell', { ns: 'apps-config' }),
+        info: 'westmint',
+        paraId: 1000,
+        text: t('rpc.westend.shell', 'Westmint', { ns: 'apps-config' }),
         providers: {
-          Parity: 'wss://westend-shell-rpc.parity.io'
-        }
+          Parity: 'wss://westmint-rpc.polkadot.io'
+        },
+        teleport: [-1]
       },
+      // (3) parachains with id, see Rococo (info here maps to the actual "named icon")
+      //
+      // NOTE: Added alphabetical based on chain name
       {
         info: 'moonshadow',
         paraId: 2002,
@@ -47,9 +52,6 @@ export function createWestend (t: TFunction): EndpointOption {
           Purestake: 'wss://wss.moonshadow.testnet.moonbeam.network'
         }
       }
-      // (3) parachains with id, see Rococo (info here maps to the actual "named icon")
-      //
-      // NOTE: Added alphabetical based on chain name
     ]
   };
 }
