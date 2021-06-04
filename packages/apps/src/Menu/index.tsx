@@ -25,24 +25,18 @@ interface Props {
   className?: string;
 }
 
-function createExternals (t: TFunction): ItemRoute[] {
+function createExternals(t: TFunction): ItemRoute[] {
   return [
     {
-      href: 'https://github.com/polkadot-js/apps',
-      icon: 'code-branch',
-      name: 'github',
-      text: t<string>('nav.github', 'GitHub', { ns: 'apps-routing' })
-    },
-    {
-      href: 'https://wiki.polkadot.network',
+      href: 'https://docs.bit.country',
       icon: 'book',
       name: 'wiki',
-      text: t<string>('nav.wiki', 'Wiki', { ns: 'apps-routing' })
+      text: t<string>('nav.wiki', 'Docs', { ns: 'apps-routing' })
     }
   ];
 }
 
-function checkVisible ({ api, isApiConnected, isApiReady }: ApiProps, hasAccounts: boolean, hasSudo: boolean, { isHidden, needsAccounts, needsApi, needsSudo }: Route['display']): boolean {
+function checkVisible({ api, isApiConnected, isApiReady }: ApiProps, hasAccounts: boolean, hasSudo: boolean, { isHidden, needsAccounts, needsApi, needsSudo }: Route['display']): boolean {
   if (isHidden) {
     return false;
   } else if (needsAccounts && !hasAccounts) {
@@ -58,7 +52,7 @@ function checkVisible ({ api, isApiConnected, isApiReady }: ApiProps, hasAccount
   return findMissingApis(api, needsApi).length === 0;
 }
 
-function extractGroups (routing: Routes, groupNames: Record<string, string>, apiProps: ApiProps, hasAccounts: boolean, hasSudo: boolean): Group[] {
+function extractGroups(routing: Routes, groupNames: Record<string, string>, apiProps: ApiProps, hasAccounts: boolean, hasSudo: boolean): Group[] {
   return Object
     .values(
       routing.reduce((all: Groups, route): Groups => {
@@ -83,7 +77,7 @@ function extractGroups (routing: Routes, groupNames: Record<string, string>, api
     .filter(({ routes }) => routes.length);
 }
 
-function Menu ({ className = '' }: Props): React.ReactElement<Props> {
+function Menu({ className = '' }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
   const { allAccounts, hasAccounts } = useAccounts();
   const apiProps = useApi();
@@ -95,7 +89,7 @@ function Menu ({ className = '' }: Props): React.ReactElement<Props> {
 
   const groupRef = useRef({
     accounts: t('Accounts'),
-    developer: t('Developer'),
+    developer: t('Transaction'),
     governance: t('Governance'),
     network: t('Network'),
     settings: t('Settings')

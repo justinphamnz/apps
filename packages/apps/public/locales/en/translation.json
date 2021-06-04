@@ -156,6 +156,7 @@
   "This is a developer tool that allows you to execute selected snippets in a limited context.": "",
   "This is not a valid JSON object.": "",
   "This vote does not affect any economics of the Polkadot platform. Staking rewards, inflation, effective market capitalisation and the underlying balances of every account remain completely unchanged. It is \"merely\" about what units we use to denominate the balances into \"DOT\" for the purpose of display.": "",
+  "Transaction": "",
   "Unable to find on-chain WASM code for the supplied codeHash": "",
   "Unable to retrieve the specified block details. {{error}}": "",
   "Unassign curator": "",

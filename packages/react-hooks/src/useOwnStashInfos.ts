@@ -18,13 +18,13 @@ import { useOwnStashes } from './useOwnStashes';
 type ValidatorInfo = ITuple<[ValidatorPrefs, Codec]> | ValidatorPrefs;
 type Queried = Record<string, [boolean, DeriveStakingAccount, ValidatorInfo]>;
 
-function toIdString (id?: AccountId | null): string | null {
+function toIdString(id?: AccountId | null): string | null {
   return id
     ? id.toString()
     : null;
 }
 
-function getStakerState (stashId: string, allAccounts: string[], [isOwnStash, { controllerId: _controllerId, exposure, nextSessionIds, nominators, rewardDestination, sessionIds, stakingLedger, validatorPrefs }, validateInfo]: [boolean, DeriveStakingAccount, ValidatorInfo]): StakerState {
+function getStakerState(stashId: string, allAccounts: string[], [isOwnStash, { controllerId: _controllerId, exposure, nextSessionIds, nominators, rewardDestination, sessionIds, stakingLedger, validatorPrefs }, validateInfo]: [boolean, DeriveStakingAccount, ValidatorInfo]): StakerState {
   const isStashNominating = !!(nominators?.length);
   const isStashValidating = !(Array.isArray(validateInfo) ? validateInfo[1].isEmpty : validateInfo.isEmpty);
   const nextConcat = u8aConcat(...nextSessionIds.map((id): Uint8Array => id.toU8a()));
@@ -55,7 +55,7 @@ function getStakerState (stashId: string, allAccounts: string[], [isOwnStash, { 
   };
 }
 
-export function useOwnStashInfos (): StakerState[] | undefined {
+export function useOwnStashInfos(): StakerState[] | undefined {
   const { api } = useApi();
   const { allAccounts } = useAccounts();
   const mountedRef = useIsMountedRef();
@@ -74,6 +74,7 @@ export function useOwnStashInfos (): StakerState[] | undefined {
         ];
 
         api.combineLatest<[DeriveStakingAccount[], ValidatorInfo[]]>(fns, ([accounts, validators]): void => {
+          console.log('validators', validators);
           mountedRef.current && ownStashes.length === accounts.length && ownStashes.length === validators.length && setQueried(
             ownStashes.reduce((queried: Queried, [stashId, isOwnStash], index): Queried => ({
               ...queried,

@@ -14,8 +14,8 @@ const pkgJson = require('../../package.json') as { version: string };
 
 const uiInfo = `apps v${pkgJson.version}`;
 
-function NodeInfo ({ className = '' }: Props): React.ReactElement<Props> {
-  const { api, isApiReady } = useApi();
+function NodeInfo({ className = '' }: Props): React.ReactElement<Props> {
+  const { isApiReady } = useApi();
 
   return (
     <div className={`${className} media--1400 highlight--color-contrast ui--NodeInfo`}>
@@ -25,8 +25,8 @@ function NodeInfo ({ className = '' }: Props): React.ReactElement<Props> {
           <NodeVersion label='v' />
         </div>
       )}
-      <div>{api.libraryInfo.replace('@polkadot/', '')}</div>
       <div>{uiInfo}</div>
+      <div><a href="mailto:genesis@bit.country">Email: genesis@bit.country</a></div>
     </div>
   );
 }
@@ -40,7 +40,9 @@ export default React.memo(styled(NodeInfo)`
 
   > div {
     margin-bottom: -0.125em;
-
+    > a {
+      color: #fff !important
+    }
     > div {
       display: inline-block;
     }
